@@ -1,0 +1,24 @@
+{
+  "name": "react-app",
+  "version": "1.0.0",
+  "description": "just a start",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavoferreira0701/simple-react-ecommerce.git"
+  },
+  "keywords": [
+    "react",
+    "app",
+    "go"
+  ],
+  "author": "Gustavo Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavoferreira0701/simple-react-ecommerce/issues"
+  },
+  "homepage": "https://github.com/gustavoferreira0701/simple-react-ecommerce#readme"
+}
