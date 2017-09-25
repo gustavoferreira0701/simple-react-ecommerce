@@ -1,6 +1,6 @@
 const brand = {
     set: function set(sequelizeInstance, sequelizeDataType) {
-        return sequelizeInstance.define('brand', {
+        let obj= sequelizeInstance.define('brand', {
             id: {
                 type: sequelizeDataType.BIGINT,
                 allowNull: false,
@@ -12,6 +12,8 @@ const brand = {
                 allowNull: false
             }
         });
+
+        return obj;
     },
     bind:(models)=>{
         models.brand.model.hasMany(models.product.model, {

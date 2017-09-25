@@ -1,4 +1,5 @@
-const directoryHelper = require('../helpers/directory_helper');
+const directoryHelper = require('../helpers/directory_helper'),
+      sequelizeHelper = require('../helpers/sequelize_helper');
 
 const db = (()=>{
     const sequelize = require("sequelize");
@@ -80,14 +81,24 @@ const db = (()=>{
         }
     }
 
+    function getEntities(){
+        let entities = {};
+
+        Object.keys(models).forEach(function(element) {
+            entities[element] = models[element].model;
+        });
+
+        return entities;
+    }
+
+    async function doSomeShit(){
+        let data = await models.brand.model.findAll().map(sequelizeHelper.getDataSet);
+        return data;
+    }
+
     return{
         Exec: syncronizeModels,
-        Model:()=>{
-            return Object.keys(models)
-                         .map((element, index)=> { 
-                             return models[element].model; 
-                          });
-        }
+        Model:getEntities
     }
 })();
 
