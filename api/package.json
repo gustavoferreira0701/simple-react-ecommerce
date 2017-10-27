@@ -2,9 +2,9 @@
   "name": "e-commerce-api",
   "version": "1.0.0",
   "description": "A simple api using nodejs + express",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --timeout 10000"
   },
   "repository": {
     "type": "git",
@@ -23,10 +23,15 @@
   },
   "homepage": "https://github.com/gustavoferreira0701/simple-react-ecommerce#readme",
   "dependencies": {
-    "body-parser": "^1.18.1",
-    "express": "^4.15.4",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mocha": "^4.0.1",
     "pg": "^7.3.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.8.3"
+    "sequelize": "^4.17.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0"
   }
 }

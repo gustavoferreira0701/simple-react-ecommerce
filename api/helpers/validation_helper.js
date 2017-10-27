@@ -1,7 +1,14 @@
 class validation {
-    constructor(_valid, ..._messages){
-        this.valid = _valid;
-        this.messages = _messages || [];
+    constructor(){        
+        this.messages = [];
+    }
+
+    isValid(){
+        return this.messages.length === 0;
+    }
+
+    addMessage(message){
+        this.messages.push(message);
     }
 }
 

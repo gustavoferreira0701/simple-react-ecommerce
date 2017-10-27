@@ -1,9 +1,9 @@
-const brand = (function (){
+const category = (function (){
     return {
         Start:(db, application)=>{
-            console.info("Route invoked!");
+            console.info(`Route category invoked!`);
         }
     };
 }());
 
-module.exports = brand;
+module.exports = category;

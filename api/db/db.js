@@ -9,9 +9,10 @@ const db = (()=>{
         models = {};
     
     function connect (){
-        instance = new sequelize('my-store', 'postgres', '#gt512M4a1', {
+        instance = new sequelize('my-store', 'postgres', 'H@lif@X2019', {
             host: 'localhost',
             dialect: 'postgres',
+            logging: false
         });
     }
 
@@ -28,7 +29,7 @@ const db = (()=>{
     }
 
      function bindModels(){
-            console.info("Binding Models");
+            
             try {
                 Object.keys(models)
                 .forEach((item, index)=>{                     
@@ -42,7 +43,7 @@ const db = (()=>{
 
 
     function setModels(){
-        console.info("Setting Models");
+        
             try {
                 if(models !== null){
                     Object.keys(models)
@@ -97,8 +98,8 @@ const db = (()=>{
     }
 
     return{
-        Exec: syncronizeModels,
-        Model:getEntities
+        SyncDB: syncronizeModels,
+        GetModels:getEntities
     }
 })();
 
