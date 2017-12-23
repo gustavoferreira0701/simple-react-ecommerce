@@ -4,7 +4,8 @@
   "description": "A simple api using nodejs + express",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 10000"
+    "test": "mocha --timeout 10000",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,8 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mocha": "^4.0.1",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.1",
     "pg": "^7.3.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.17.2"

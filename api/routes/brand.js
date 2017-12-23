@@ -1,9 +1,7 @@
 const validation = require('../helpers/validation_helper'),
     http_status = require('../helpers/http_status_helper'),
-    virtualPath = '/brand',
-    brand = (function () {
-
-        let _db, _app;
+    virtualPath = '/api/brand',
+    brand = (function (_db, _app) {        
 
         async function get(request, response) {
             try {
@@ -18,7 +16,7 @@ const validation = require('../helpers/validation_helper'),
         async function getWithParameters(request, response) {
             try {
                 let paramId = request.params.id;
-                let data = await _db.brand.find({
+                let data = await _db.brand.find({ 
                     where: { id: paramId }
                 });
                 response.status(http_status.OK);
@@ -118,6 +116,9 @@ const validation = require('../helpers/validation_helper'),
 
         return {
             Start: (db, application) => {
+
+                console.info("Starting Brand Route");
+
                 _db = db;
                 _app = application;
 

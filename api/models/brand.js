@@ -17,7 +17,7 @@ const brand = {
     },
     bind:(models)=>{
         models.brand.model.hasMany(models.product.model, {
-            foreignKey: 'state_basket_id',
+            foreignKey: 'brand_id',
             sourceKey: 'id'
         });
     }

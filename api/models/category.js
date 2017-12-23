@@ -18,6 +18,11 @@ const category = {
             foreignKey: 'category_id',
             sourceKey: 'id'
         });
+
+        models.category.model.hasMany(models.category.model, {
+            foreignKey:'upper_category',
+            sourceKey: 'id'
+        });
     }
 };
 

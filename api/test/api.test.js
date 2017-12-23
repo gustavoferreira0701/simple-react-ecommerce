@@ -1,7 +1,6 @@
 let chai = require('chai'),
-    server = require('../server/server'),
-    brand
-app = null;
+    server = require('../server/server'),    
+    app = null;
 
 chai.use(require('chai-http'));
 

@@ -1,15 +1,13 @@
-const directoryHelper = require('../helpers/directory_helper'),
-      sequelizeHelper = require('../helpers/sequelize_helper');
+const directoryHelper = require('../helpers/directory_helper');
 
 const db = (()=>{
-    const sequelize = require("sequelize");
-          
+    const sequelize = require("sequelize");         
     
     let instance = null,
         models = {};
     
     function connect (){
-        instance = new sequelize('my-store', 'postgres', 'H@lif@X2019', {
+        instance = new sequelize('my-store', 'postgres', '%develoPer1', {
             host: 'localhost',
             dialect: 'postgres',
             logging: false
@@ -18,27 +16,26 @@ const db = (()=>{
 
     async function syncronizeModels  (){
         try {
-            connect();
-            let modelsFound = await getModels("./models");
-            setModels();
-            bindModels();
-            await instance.sync();
+                    connect();
+            await   getModels("./models");
+                    setModels();
+                    bindModels();
+            await   instance.sync({ force: true });            
         } catch (error) {
             console.error("Erro encontrado: ", error);
         }
     }
 
-     function bindModels(){
-            
+     function bindModels(){            
             try {
                 Object.keys(models)
                 .forEach((item, index)=>{                     
+                        console.log(models[item]);
                       models[item].instance.bind(models);
                  });
             } catch (error) {
                 console.error("There is an error: ", error);
-            }
-    
+            }    
     }
 
 
@@ -85,16 +82,12 @@ const db = (()=>{
     function getEntities(){
         let entities = {};
 
-        Object.keys(models).forEach(function(element) {
-            entities[element] = models[element].model;
-        });
+        Object.keys(models)
+              .forEach(function(element) {
+                    entities[element] = models[element].model;
+               });
 
         return entities;
-    }
-
-    async function doSomeShit(){
-        let data = await models.brand.model.findAll().map(sequelizeHelper.getDataSet);
-        return data;
     }
 
     return{
